@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xsi:schemaLocation="
+        http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd
+        http://www.springframework.org/schema/mvc
+        http://www.springframework.org/schema/mvc/spring-mvc.xsd">
+
+	<!-- <context:component-scan base-package="com.feng.learn.servlet.controller" 
+		/> -->
+
+	<!-- ... -->
+
+	<!-- <mvc:annotation-driven /> -->
+	
+	<!-- HttpClient -->
+	<bean id="requestExecutor" class="com.feng.learn.client.CustomHttpInvokerRequestExecutor">
+		<property name="authenticationKey" value="zhangzhan" />
+	</bean>
+	
+	<!-- 提供跨域服务 -->
+	<bean id="crossDomainService" class="com.feng.learn.client.CrossDomainService">
+		<property name="requestExecutor" ref="requestExecutor" />
+		<property name="services">
+			<map key-type="java.lang.Class" value-type="java.lang.String">
+				<entry key="com.feng.learn.http.invoker.api.AuthenticationService" value="/jetty/cudService/authenticationService"></entry>
+				<entry key="com.feng.learn.http.invoker.api.UserService" value="/jetty/cudService/userService"></entry>
+			</map>
+		</property>
+	</bean>
+	
+	
+	
+	
+	
+
+	<bean id="rsaPrivateKeyService"
+		<property name="serviceRelativeURL" value=""></property>
+	</bean>
+	
+	<bean id="userService"
+		class="org.springframework.remoting.httpinvoker.HttpInvokerProxyFactoryBean">
+		<property name="serviceUrl">
+			<value>http://172.16.81.116:8080/jetty/cudService/userService</value>
+		</property>
+		<property name="serviceInterface" value="com.feng.learn.http.invoker.api.UserService">
+		</property>
+	</bean>
+</beans>
