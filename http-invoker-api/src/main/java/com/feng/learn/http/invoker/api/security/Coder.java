@@ -54,7 +54,7 @@ public abstract class Coder {
      * @throws Exception
      */
     public static String encryptBASE64(byte[] key) {
-	return (new BASE64Encoder()).encodeBuffer(key);
+	return (new BASE64Encoder()).encode(key);
     }
 
     /**

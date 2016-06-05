@@ -18,9 +18,16 @@
 
 	<!-- <mvc:annotation-driven /> -->
 	
-	<!-- HttpClient -->
+	
+	<!-- 跨域安全认证服务 -->
+	<context:property-placeholder location="classpath:RsaKeys.properties"/>
+	<bean id="securityService" class="com.feng.learn.http.invoker.api.security.SecurityService">
+		<property name="privateKey" value="${privateKey}" />
+		<property name="publicKey" value="${publicKey}" />
+	</bean>
+	
 	<bean id="requestExecutor" class="com.feng.learn.client.CustomHttpInvokerRequestExecutor">
-		<property name="authenticationKey" value="zhangzhan" />
+		<property name="securityService" ref="securityService"></property>
 	</bean>
 	
 	<!-- 提供跨域服务 -->
@@ -34,21 +41,4 @@
 		</property>
 	</bean>
 	
-	
-	
-	
-	
-
-	<bean id="rsaPrivateKeyService"
-		<property name="serviceRelativeURL" value=""></property>
-	</bean>
-	
-	<bean id="userService"
-		class="org.springframework.remoting.httpinvoker.HttpInvokerProxyFactoryBean">
-		<property name="serviceUrl">
-			<value>http://172.16.81.116:8080/jetty/cudService/userService</value>
-		</property>
-		<property name="serviceInterface" value="com.feng.learn.http.invoker.api.UserService">
-		</property>
-	</bean>
 </beans>

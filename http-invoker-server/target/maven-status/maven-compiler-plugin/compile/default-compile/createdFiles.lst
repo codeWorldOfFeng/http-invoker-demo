@@ -1,6 +1,0 @@
-com\feng\learn\http\invoker\filter\AuthenticationFilter.class
-com\feng\learn\http\invoker\CrossDomainService.class
-com\feng\learn\servlet\controller\SpringController.class
-com\feng\learn\servlet\ContainerTest.class
-com\feng\learn\http\invoker\UserServiceImpl.class
-com\feng\learn\http\invoker\PersonServiceImpl.class

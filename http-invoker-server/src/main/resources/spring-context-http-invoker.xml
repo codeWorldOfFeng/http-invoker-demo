@@ -24,6 +24,13 @@
 
 	<bean id="personServices" class="com.feng.learn.http.invoker.PersonServiceImpl" />
 
+	<!-- 跨域安全认证服务 -->
+	<context:property-placeholder location="classpath:RsaKeys.properties"/>
+	<bean id="securityService" class="com.feng.learn.http.invoker.api.security.SecurityService">
+		<property name="privateKey" value="${privateKey}" />
+		<property name="publicKey" value="${publicKey}" />
+	</bean>
+
 	<bean id="crossDomainServiceEntry"
 		class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
 		<property name="mappings">

@@ -24,14 +24,6 @@
 		<url-pattern>/*</url-pattern>
 	</filter-mapping>
 	
-	<filter>
-		<filter-name>cudServiceAuthentication</filter-name>
-		<filter-class>com.feng.learn.http.invoker.filter.AuthenticationFilter</filter-class>
-	</filter>
-	<filter-mapping>
-		<filter-name>cudServiceAuthentication</filter-name>
-		<url-pattern>/cudService/*</url-pattern>
-	</filter-mapping>
 	<servlet>
 		<servlet-name>cudService</servlet-name>
 		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
@@ -58,14 +50,5 @@
 	<servlet-mapping>
 		<servlet-name>springmvc</servlet-name>
 		<url-pattern>/</url-pattern>
-	</servlet-mapping>
-	
-	<servlet>
-		<servlet-name>containerTest</servlet-name>
-		<servlet-class>com.feng.learn.servlet.ContainerTest</servlet-class>
-	</servlet>
-	<servlet-mapping>
-		<servlet-name>containerTest</servlet-name>
-		<url-pattern>/test</url-pattern>
 	</servlet-mapping>
 </web-app>

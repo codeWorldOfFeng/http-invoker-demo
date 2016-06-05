@@ -3,12 +3,11 @@
  */
 package com.feng.learn.web_spring.test;
 
-import static org.junit.Assert.*;
-
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
+import org.junit.Ignore;
 import org.junit.Test;
 
 /**
@@ -46,6 +45,7 @@ public class DefaultTest {
 	}
 
 	@Test
+	@Ignore
 	public void test() {
 		//fail("Not yet implemented");
 	}
